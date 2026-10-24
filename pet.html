@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PetID</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="profile-page">
+    <p id="status" class="status">Loading profile...</p>
+
+    <article class="card" id="card" hidden>
+      <div class="card-hole"></div>
+
+      <section class="pet">
+        <div class="photo pet-photo" id="petPhotoBox"><span>No photo</span></div>
+        <div>
+          <h2 id="cName"></h2>
+          <p id="cBreed" class="muted"></p>
+          <p id="cTemper" class="chip"></p>
+        </div>
+      </section>
+
+      <section class="owner">
+        <div class="photo owner-photo" id="ownerPhotoBox"><span>Owner</span></div>
+        <div>
+          <h3>Owner</h3>
+          <p id="cOwner"></p>
+          <a id="cPhone" class="call" href="#"></a>
+        </div>
+      </section>
+
+      <section class="health">
+        <h3>Health</h3>
+        <p id="cVax" class="vax"></p>
+        <p id="cNotes" class="muted"></p>
+      </section>
+    </article>
+  </main>
+
+  <script type="module" src="pet.js"></script>
+</body>
+</html>

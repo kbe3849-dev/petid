@@ -1,0 +1,249 @@
+:root {
+  --ink: #14213d;
+  --paper: #fafbfc;
+  --mist: #e6eef5;
+  --brass: #ffc531;
+  --green: #2f9e6f;
+  --red: #c0392b;
+  --muted: #5b6b82;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Nunito", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--mist);
+  line-height: 1.5;
+}
+
+h1, h2, h3, legend { font-family: "Fredoka", "Nunito", sans-serif; }
+
+.top { text-align: center; padding: 28px 16px 8px; }
+.top h1 { margin: 0; font-size: 2.2rem; }
+.top p { margin: 4px 0 0; color: var(--muted); }
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 24px auto 48px;
+  padding: 0 16px;
+  align-items: start;
+}
+
+/* ---------- Form ---------- */
+.panel {
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+fieldset { border: 0; padding: 0; margin: 0 0 22px; }
+legend { font-size: 1.2rem; font-weight: 600; padding: 0; margin-bottom: 8px; }
+
+label { display: block; font-weight: 600; margin-bottom: 12px; }
+
+input[type="text"],
+input[type="tel"],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--mist);
+  border-radius: 10px;
+}
+
+input[type="file"] { display: block; margin-top: 6px; font: inherit; }
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--brass);
+  outline-offset: 2px;
+}
+
+.check { display: flex; align-items: center; gap: 8px; }
+.check input { width: 20px; height: 20px; accent-color: var(--green); }
+
+button {
+  width: 100%;
+  padding: 12px;
+  font: 600 1.05rem "Fredoka", sans-serif;
+  color: var(--ink);
+  background: var(--brass);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button:hover { filter: brightness(0.95); }
+
+/* ---------- Profile card ---------- */
+.preview { position: sticky; top: 16px; }
+
+.card {
+  position: relative;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  padding: 52px 28px 28px;
+  box-shadow: 0 6px 0 var(--ink);
+}
+
+/* the hole where a collar ring would go */
+.card-hole {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  background: var(--mist);
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+}
+
+.pet { display: flex; gap: 20px; align-items: center; }
+.pet h2 { margin: 0; font-size: 2.1rem; line-height: 1.1; }
+
+.photo {
+  flex: none;
+  display: grid;
+  place-items: center;
+  background: var(--mist) center / cover no-repeat;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: center;
+  overflow: hidden;
+}
+.pet-photo { width: 170px; height: 170px; border-radius: 22px; }
+.owner-photo { width: 90px; height: 90px; border-radius: 50%; }
+.photo.has-image span { display: none; }
+.photo { cursor: pointer; }
+
+.muted { color: var(--muted); margin: 2px 0; }
+
+.chip {
+  display: inline-block;
+  margin: 8px 0 0;
+  padding: 2px 12px;
+  font-weight: 700;
+  background: var(--brass);
+  border-radius: 999px;
+}
+
+.owner, .health {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 2px dashed var(--mist);
+}
+.owner { display: flex; gap: 18px; align-items: center; }
+.owner h3, .health h3 { margin: 0 0 2px; font-size: 1.1rem; }
+.owner p, .health p { margin: 0; }
+
+.vax { font-weight: 700; }
+.vax.yes { color: var(--green); }
+.vax.no { color: var(--red); }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+  .preview { position: static; }
+}
+
+/* ---------- Crop pop-up ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(20, 33, 61, 0.7);
+}
+.modal[hidden] { display: none; }
+
+.modal-box {
+  width: min(480px, 100%);
+  padding: 20px;
+  background: var(--paper);
+  border-radius: var(--radius);
+}
+.modal-box h3 { margin: 0; font-size: 1.3rem; }
+
+.crop-area {
+  height: min(60vh, 400px);
+  margin: 12px 0;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.crop-area img { display: block; max-width: 100%; }
+
+.modal-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.modal-actions button { flex: 1 1 auto; width: auto; padding: 10px 14px; font-size: 1rem; }
+button.ghost { background: var(--mist); }
+
+/* ---------- Save message ---------- */
+.save-message {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  word-break: break-all;
+}
+.save-message[hidden] { display: none; }
+.save-message.ok { background: #dff3e9; color: #17623f; }
+.save-message.error { background: #f9dcd8; color: #8c2a1e; }
+
+/* ---------- Public pet page (pet.html) ---------- */
+.profile-page {
+  max-width: 480px;
+  margin: 32px auto 48px;
+  padding: 0 16px;
+}
+.profile-page .photo { cursor: default; }
+.profile-page .card[hidden] { display: none; }
+.status { text-align: center; color: var(--muted); font-weight: 600; }
+.status[hidden] { display: none; }
+.call {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 6px 16px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--brass);
+  border-radius: 999px;
+}
+.chip[hidden] { display: none; }
+
+/* ---------- QR result ---------- */
+.qr-result {
+  margin-top: 18px;
+  padding: 18px;
+  text-align: center;
+  background: var(--mist);
+  border-radius: var(--radius);
+}
+.qr-result[hidden] { display: none; }
+.qr-result h3 { margin: 0 0 12px; font-size: 1.2rem; }
+.qr-result a { display: block; margin: 0 0 14px; font-weight: 600; color: var(--ink); word-break: break-all; }
+.qr-code {
+  display: inline-block;
+  padding: 16px;
+  margin-bottom: 8px;
+  line-height: 0;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+}
