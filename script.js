@@ -11,6 +11,7 @@ const fields = {
   temperament: $("temperament"),
   ownerName: $("ownerName"),
   ownerPhone: $("ownerPhone"),
+  ownerAddress: $("ownerAddress"),
   vaccinated: $("vaccinated"),
   healthNotes: $("healthNotes"),
 };
@@ -21,6 +22,7 @@ const card = {
   temper: $("cTemper"),
   owner: $("cOwner"),
   phone: $("cPhone"),
+  address: $("cAddress"),
   vax: $("cVax"),
   notes: $("cNotes"),
 };
@@ -36,6 +38,7 @@ function updateCard() {
   setText(card.temper, fields.temperament.value, "Temperament");
   setText(card.owner, fields.ownerName.value, "Owner name");
   setText(card.phone, fields.ownerPhone.value, "Phone number");
+  setText(card.address, fields.ownerAddress.value, "Address");
   setText(card.notes, fields.healthNotes.value, "No notes added.");
 
   const vaccinated = fields.vaccinated.checked;
@@ -206,6 +209,7 @@ $("petForm").addEventListener("submit", async (event) => {
       temperament: fields.temperament.value,
       ownerName: fields.ownerName.value.trim(),
       ownerPhone: fields.ownerPhone.value.trim(),
+      ownerAddress: fields.ownerAddress.value.trim(),
       vaccinated: fields.vaccinated.checked,
       healthNotes: fields.healthNotes.value.trim(),
       // photos are saved as text (data URLs) inside the same document

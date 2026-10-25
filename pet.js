@@ -46,6 +46,11 @@ async function loadPet() {
     $("cTemper").textContent = pet.temperament || "";
     $("cTemper").hidden = !pet.temperament;
     $("cOwner").textContent = pet.ownerName || "Owner not listed";
+
+    // Older profiles have no address, so hide the line when it is empty
+    const address = (pet.ownerAddress || "").trim();
+    $("cAddress").textContent = address;
+    $("cAddress").hidden = !address;
     $("cNotes").textContent = pet.healthNotes || "No notes added.";
 
     const phone = (pet.ownerPhone || "").trim();
