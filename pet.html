@@ -40,6 +40,25 @@
         <p id="cNotes" class="muted"></p>
       </section>
     </article>
+
+    <!-- FINDER: share location (only happens when the finder taps the button) -->
+    <section id="locateBox" class="locate" hidden>
+      <h3>Found this pet?</h3>
+      <p class="muted">
+        You can send your current location to the owner. It is completely your choice:
+        nothing is shared until you tap the button, your phone will ask for permission,
+        and you decide how to send it. Nothing is stored on this website.
+      </p>
+      <button type="button" id="shareLocation">Share my location with the owner</button>
+      <p id="locMsg" class="save-message" hidden></p>
+
+      <div id="locActions" class="loc-actions" hidden>
+        <a id="sendWhatsApp" class="call" target="_blank" rel="noopener">Send by WhatsApp</a>
+        <a id="sendSms" class="call">Send by SMS</a>
+        <a id="viewMap" class="call alt" target="_blank" rel="noopener">View on map</a>
+        <button type="button" id="copyLoc" class="ghost">Copy message</button>
+      </div>
+    </section>
   </main>
 
   <script type="module" src="pet.js"></script>

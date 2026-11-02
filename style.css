@@ -247,3 +247,25 @@ button.ghost { background: var(--mist); }
   border: 3px solid var(--ink);
   border-radius: 16px;
 }
+/* ---------- Finder: share location (pet.html) ---------- */
+.locate {
+  margin-top: 20px;
+  padding: 18px;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+}
+.locate[hidden] { display: none; }
+.locate h3 { margin: 0 0 6px; font-size: 1.2rem; }
+.locate .muted { margin-bottom: 12px; font-size: 0.95rem; }
+.loc-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.loc-actions[hidden] { display: none; }
+.loc-actions .call, .loc-actions button {
+  flex: 1 1 auto;
+  width: auto;
+  margin: 0;
+  padding: 10px 14px;
+  text-align: center;
+  font: 700 1rem "Nunito", sans-serif;
+}
+.call.alt { background: var(--mist); }
